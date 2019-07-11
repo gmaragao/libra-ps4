@@ -19,7 +19,7 @@ exports.createPlayer = async (req, res) => {
     });
 };
 
-exports.newGame = async (req, res) => {
+exports.updateGames = async (req, res) => {
   const { psnAccount, game } = req.body;
   const player = await Player.findOneAndUpdate(
     { psnAccount },
