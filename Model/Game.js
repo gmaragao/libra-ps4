@@ -9,6 +9,9 @@ const GameSchema = new Schema({
     },
     points: {
       type: Number
+    },
+    team: {
+      type: String
     }
   },
   player2: {
@@ -18,6 +21,9 @@ const GameSchema = new Schema({
     },
     points: {
       type: Number
+    },
+    team: {
+      type: String
     }
   },
   played: {
