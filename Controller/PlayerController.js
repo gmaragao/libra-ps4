@@ -18,3 +18,18 @@ exports.createPlayer = async (req, res) => {
       res.send(err);
     });
 };
+
+exports.newGame = async (req, res) => {
+  const { psnAccount, game } = req.body;
+  const player = await Player.findOneAndUpdate(
+    { psnAccount },
+    {
+      $push: { gamePlayed: game }
+    },
+    { new: true }
+  )
+    .then(() => res.send(player))
+    .catch(err => {
+      res.send(err);
+    });
+};
