@@ -2,13 +2,23 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const GameSchema = new Schema({
-  player1PsnAccount: {
-    type: String,
-    required: true
+  player1: {
+    psnAccount: {
+      type: String,
+      required: true
+    },
+    points: {
+      type: Number
+    }
   },
-  player2PsnAccount: {
-    type: String,
-    required: true
+  player2: {
+    psnAccount: {
+      type: String,
+      required: true
+    },
+    points: {
+      type: Number
+    }
   },
   played: {
     type: Boolean,
