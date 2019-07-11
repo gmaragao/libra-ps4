@@ -12,7 +12,8 @@ const RegisterSchema = new Schema({
   },
   psnAccount: {
     type: String,
-    required: true
+    required: true,
+    unique: true
   }
 });
 
