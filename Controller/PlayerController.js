@@ -22,13 +22,13 @@ exports.createPlayer = async (req, res) => {
 exports.updateGames = async (req, res) => {
   const { psnAccount, game } = req.body;
   const player = await Player.findOneAndUpdate(
-    { psnAccount },
+    { 'profile.psnAccount': psnAccount },
     {
       $push: { gamePlayed: game }
     },
     { new: true }
   )
-    .then(() => res.send(player))
+    .then(player => res.send(player))
     .catch(err => {
       res.send(err);
     });
