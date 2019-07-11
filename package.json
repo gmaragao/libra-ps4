@@ -1,0 +1,25 @@
+{
+  "name": "libra-ps4",
+  "version": "1.0.0",
+  "description": "Project Libra PS4 - NBA2kLeague",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gmaragao/libra-ps4.git"
+  },
+  "author": "Gabriel Aragão @idealizer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gmaragao/libra-ps4/issues"
+  },
+  "homepage": "https://github.com/gmaragao/libra-ps4#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "nodemon": "^1.19.1"
+  }
+}
