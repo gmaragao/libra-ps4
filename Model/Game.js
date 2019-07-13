@@ -1,3 +1,4 @@
+'use strict';
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
@@ -8,10 +9,12 @@ const GameSchema = new Schema({
       required: true
     },
     points: {
-      type: Number
+      type: Number,
+      required: true
     },
     team: {
-      type: String
+      type: String,
+      required: true
     }
   },
   player2: {
@@ -20,15 +23,16 @@ const GameSchema = new Schema({
       required: true
     },
     points: {
-      type: Number
+      type: Number,
+      required: true
     },
     team: {
-      type: String
+      type: String,
+      required: true
     }
   },
   played: {
-    type: Boolean,
-    default: false
+    type: Boolean
   },
   playedDate: {
     type: String
