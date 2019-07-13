@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const RegisterController = require('./Controller/RegisterController');
+const router = require('./routes');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -14,10 +14,10 @@ app.listen(3000, () => {
   console.log('Listening on port 3000');
 });
 
-mongoose.connect('mongodb://localhost:27017/libra', { useNewUrlParser: true });
-
-app.get('/', (req, res) => {
-  res.send('Teste');
+mongoose.connect('mongodb://localhost:27017/libra', {
+  useNewUrlParser: true,
+  useCreateIndex: true,
+  useFindAndModify: false
 });
 
-app.post('/player', RegisterController.createPlayer);
+app.use('/', router);
