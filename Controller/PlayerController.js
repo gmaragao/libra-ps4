@@ -19,6 +19,18 @@ exports.createPlayer = async (req, res) => {
     });
 };
 
+exports.getPlayer = async (req, res) => {
+  const psnAccount = req.params.psnAccount;
+  console.log(psnAccount);
+  const player = await Player.findOne({ 'profile.psnAccount': psnAccount })
+    .then(player => {
+      res.render('player', { player });
+    })
+    .catch(err => {
+      res.send(err);
+    });
+};
+
 exports.updateGames = async (req, res) => {
   const { game } = req.body;
   let player = await Player.findOneAndUpdate(
