@@ -1,0 +1,14 @@
+<%- include('partials/header')%>
+<br>
+<% players.forEach( function(player){ %>
+    
+    <div class="card" style="margin-bottom:2%; margin-left:2rem; width:20rem;">
+        <h2 class="card-title" style="margin-left:1rem;"><%= player.profile.name %> </h2>
+        <div class="card-body">
+            <h3 class="card-reader">PSN:<%= player.profile.psnAccount %> </h3>
+            <a href="player/<%= player.profile.psnAccount %>" class="btn btn-primary">Ver página do jogador</a>
+        </div>
+    </div> 
+    <% }); %>
+    
+<%- include('partials/footer')%>

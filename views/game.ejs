@@ -1,0 +1,92 @@
+<%- include('partials/header')%>
+<hr>
+<div class="container">
+  <div class="card">
+    <h1 class="display-3 text-center">Adicionar novo jogo</h1>
+
+    <form action="/player" method="POST">
+      <div class="form-group">
+            <div class="row">
+                <div class="col-3">
+                    <label for="player1Psn" class="control-label">
+                    Jogador 1
+                    </label>
+                    <select class="form-control" id="player1Psn" name="player1Psn">
+                        <option>GablackBR11</option>
+                        <option>betomessias</option>
+                        <option>overbeck12</option>
+                        <option>theguy948</option>
+                    </select>
+                </div>
+                <div class="col-3">
+                    <%# <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="actionButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Escolher Jogador 2
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item1" href="#">betomessias</a>
+                            <a class="dropdown-item2" href="#">overbeck12</a>
+                            <a class="dropdown-item3" href="#">theguy948</a>
+                        </div>
+                    </div> %>
+                    <%# <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="actionButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span id="selected">Escolha o Jogador 2</span><span class="caret"></span></a>
+                        </a>
+                        <ul class="dropdown-menu" id="player2.profile.psnAccount">
+                            <li><a class="dropdown-item" href="#">betomessias</a></li>
+                            <li><a class="dropdown-item" href="#">overbeck12</a></li>
+                            <li><a class="dropdown-item" href="#">theguy948</a></li>
+                        </ul>
+                    </div> %>
+                    <label for="player2Psn" class="control-label">
+                    Jogador 2
+                    </label>
+                    <select class="form-control" id="player2Psn" name="player2Psn">
+                        <option>betomessias</option>
+                        <option>overbeck12</option>
+                    
+                        <option>theguy948</option>
+                    </select>
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <input type="text"  class="form-control text-center" name="player1Team"  placeholder="Time Jogador 1">
+                </div>
+                <div class="col-3">
+                    <input type="text"  class="form-control text-center" name="player2Team"  placeholder="Time Jogador 2">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">
+                    <input type="text"  class="form-control text-center" name="player1Points"  placeholder="Pontuação Jogador 1">
+                </div>
+                <div class="col-3">
+                    <input type="text"  class="form-control text-center" name="player2Points"  placeholder="Pontuação Jogador 2">
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-dark">Enviar resultados</button>
+    </form>
+
+
+  </div>
+</div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script type='text/javascript'>
+  $(function(){
+      $('#actionButton').on('click', function(){
+        $('.dropdown-menu').toggle()
+      });
+      $('.dropdown-menu a').click(function(){
+        $('#selected').text($(this).text());
+
+        $('.dropdown-menu').toggle()
+      });
+      let psnAccount = $('#player2').find(":selected").text();
+  });
+    
+</script>
+<%- include('partials/footer')%>

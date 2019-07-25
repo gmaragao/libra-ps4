@@ -1,0 +1,50 @@
+<%- include('partials/header') %>
+<br>
+    <div class="container">
+        <h2 class="card-reader" style="margin-left:1rem;"><%= player.profile.name %> </h2>
+        <div class="card-body">
+            <h3 class="card-title">PSN:<%= player.profile.psnAccount %> </h3>
+            <% if(player.gamePlayed.length > 0){ %>
+              <%player.gamePlayed.forEach(function(game){%>
+                <div class="card">
+                  <div class="card-body">
+                    <div class="card-reader">
+                      <h4>Adversário: <a href="<%= game.player2.psnAccount %>"><%= game.player2.psnAccount %></a> </h4>
+                    </div>
+                    <div class="card-reader">
+                      <p>Data: <%= game.playedDate %></p>
+                    </div>
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">
+                            <%= game.player1.psnAccount %>
+                          </th>
+                          <th scope="col">
+                            <%= game.player2.psnAccount %>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tr>
+                        <td>
+                          <%= game.player1.team %>
+                        </td>
+                        <td>
+                          <%= game.player2.team %>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Pontos: <%= game.player1.points %></td>
+                        <td>Pontos: <%= game.player2.points %></td>
+                      </tr>
+                    </table>
+                  </div>
+                </div>
+              <%});%>
+            <% } else if(player.gamePlayed.length <= 0 ){ %>
+              <h1>Nenhuma partida cadastrada!</h1>
+            <% } %>
+        </div>
+    </div>
+    
+<%- include('partials/footer')%>
